@@ -29,7 +29,7 @@ public class GameStateToMQTT : MonoBehaviour  // : M2MqttUnityClient //
 
     private void Awake() 
     {
-
+        // Creates a snapCam if needed which will screenshot the game to send over MQTT
         snapCam = GetComponent<Camera>();
         if (snapCam.targetTexture == null) 
         {
@@ -58,15 +58,18 @@ public class GameStateToMQTT : MonoBehaviour  // : M2MqttUnityClient //
 
     void publishGameState(Texture2D snapshot) 
     {
+        // Gets a snapshot of the game to send over MQTT
         snapshot.ReadPixels(new Rect(0, 0, resWidth, resHeight), 0, 0);
         Color[] colors = snapshot.GetPixels();
 
+        // turns the image into a list of 0s and 1s based on if there is color or not to pass to MQTT
         int[] values = colors.Select(color => 
             {
                 if (color.r > 0 || color.b > 0 || color.g > 0) { return 1; } 
                 else { return 0; }
             }
             ).ToArray();
+
 
         // Sends the gamestate over MQTT for inference from an AI
         if (_eventSender.isConnected)

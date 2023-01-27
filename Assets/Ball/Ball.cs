@@ -59,4 +59,15 @@ public class Ball : MonoBehaviour
         var launchVector = Quaternion.AngleAxis(launchAngle, Vector3.up) * Vector3.forward;
         rigidBody.velocity = launchVector * launchSpeed;
     }
+
+    public void ResetPosition(int level)
+    {
+        Debug.Log("Resetting Position of ball");
+        rigidBody.position = new Vector2(0.0f, 0.0f);
+        Launch();
+
+        // Adjusting speed based on level
+        rigidBody.velocity += rigidBody.velocity * (level*speedMultiplier);
+
+    }
 }
