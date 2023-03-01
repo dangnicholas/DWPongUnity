@@ -46,7 +46,7 @@ public class KeyboardInputHandler : MonoBehaviour
     private void OnMessageArrivedHandler(string newMsg)
     {
         Debug.Log("Event Fired. The message is = " + newMsg);
-        MQTTInput = float.Parse(newMsg);
+        MQTTInput = float.Parse(newMsg.Replace("\"", ""));
         Debug.Log("Event Fired. The MQTTInput message is = " + MQTTInput);
         newFrame = true;
     }

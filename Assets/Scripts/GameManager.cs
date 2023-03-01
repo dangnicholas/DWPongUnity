@@ -3,8 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+using M2MqttUnity;
+using uPLibrary.Networking.M2Mqtt;
+using uPLibrary.Networking.M2Mqtt.Messages;
+
 public class GameManager : MonoBehaviour
 {
+
+    public MQTTReceiver _eventSender;
 
     // We will handle the general loop and game logic here
 
@@ -30,6 +36,10 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         gameLevel = 1;
+        if (_eventSender == null)
+        {
+            _eventSender = GetComponent<MQTTReceiver>();
+        }
     }
 
     // Update is called once per frame
@@ -57,14 +67,17 @@ public class GameManager : MonoBehaviour
             _playerTwoScore = 0;
             gameLevel++;
             gameLevelText.GetComponent<TextMeshProUGUI>().text = "Level: " + gameLevel.ToString();
+
+            if (_eventSender.isConnected)
+            {
+                _eventSender.Publish("game/level", ""+gameLevel);
+                Debug.Log("PUBLISHED LEVEL");
+            }
         }
         playerTwoText.GetComponent<TextMeshProUGUI>().text = _playerTwoScore.ToString();
 
         this.ball.ResetPosition(gameLevel-1);
 
     }
-
-
-
     
 }

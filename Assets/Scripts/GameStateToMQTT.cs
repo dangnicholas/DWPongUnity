@@ -82,5 +82,9 @@ public class GameStateToMQTT : MonoBehaviour  // : M2MqttUnityClient //
         }
     }
 
+    public void publishGameLevel() {
+        Debug.Log("GAME LEVEL CHANGED");
+    }
+
 }
 

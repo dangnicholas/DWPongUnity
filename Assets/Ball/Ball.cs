@@ -64,10 +64,32 @@ public class Ball : MonoBehaviour
     {
         Debug.Log("Resetting Position of ball");
         rigidBody.position = new Vector2(0.0f, 0.0f);
-        Launch();
+        var launchAngle = Random.Range(-launchAngleBounds, launchAngleBounds);
+        var launchVector = Quaternion.AngleAxis(launchAngle, Vector3.up) * Vector3.forward;
+        rigidBody.velocity = launchVector *  0.0f;
 
-        // Adjusting speed based on level
-        rigidBody.velocity += rigidBody.velocity * (level*speedMultiplier);
+        //Wait for 4 seconds
+        StartCoroutine(waiter(level));
 
+          
+    
+
+    }
+
+    public IEnumerator waiter(int level)
+    {   
+
+
+    Debug.Log("WAITING");
+    //Wait for 4 seconds
+    yield return new WaitForSecondsRealtime(1);
+    Debug.Log("WAIT DONE");
+
+    Launch();
+
+    // Adjusting speed based on level
+    rigidBody.velocity += rigidBody.velocity * (level*speedMultiplier);
+
+  
     }
 }
