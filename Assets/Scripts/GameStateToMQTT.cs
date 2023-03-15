@@ -45,8 +45,8 @@ public class GameStateToMQTT : MonoBehaviour  // : M2MqttUnityClient //
     void Update()
     {
 
-        // This sends the gamestate every 15 frames since our laptops can't inference fast
-        if (Time.frameCount % 15 == 0)
+        // This sends the gamestate every 15 frames since our laptops can't inference fast, 5 is best that AI could do
+        if (Time.frameCount % 5 == 0)
         {
             snapCam.Render();
             RenderTexture.active = snapCam.targetTexture;
@@ -74,16 +74,12 @@ public class GameStateToMQTT : MonoBehaviour  // : M2MqttUnityClient //
         // Sends the gamestate over MQTT for inference from an AI
         if (_eventSender.isConnected)
         {
-            Debug.Log("Published shape: " + values.Length);
+            // Debug.Log("Published shape: " + values.Length);
             _eventSender.Publish("camera/gamestate", string.Join("", values));
 
-            Debug.Log("Published frame: " + Time.frameCount);
+            // Debug.Log("Published frame: " + Time.frameCount);
             _eventSender.Publish("game/frame", string.Join("", Time.frameCount));
         }
-    }
-
-    public void publishGameLevel() {
-        Debug.Log("GAME LEVEL CHANGED");
     }
 
 }

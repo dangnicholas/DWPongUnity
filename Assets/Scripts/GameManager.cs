@@ -7,6 +7,8 @@ using M2MqttUnity;
 using uPLibrary.Networking.M2Mqtt;
 using uPLibrary.Networking.M2Mqtt.Messages;
 
+using UnityEngine.SceneManagement;
+
 public class GameManager : MonoBehaviour
 {
 
@@ -31,6 +33,15 @@ public class GameManager : MonoBehaviour
     private int _playerTwoScore;
     private int gameLevel;
 
+    public GameObject gameOverUI;
+
+
+    // These are game variables that can be changed
+    private static int nextLevelPointRequirement = 3;
+    private static int maxGameLevel = 3;
+    private static int gameOverPointRequirement = 3;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -53,9 +64,18 @@ public class GameManager : MonoBehaviour
     public void PlayerOneScore()
     {
         _playerOneScore++;
-        playerOneText.GetComponent<TextMeshProUGUI>().text = _playerOneScore.ToString();
+        if (_playerOneScore == gameOverPointRequirement) 
+        {
+            Debug.Log("Game Over. Resetting game!");
+            StartCoroutine(GameOverResetGame());
+        } else 
+        {
+            playerOneText.GetComponent<TextMeshProUGUI>().text = _playerOneScore.ToString();
+
+            this.ball.ResetPosition(gameLevel - 1);
+        }
+
         
-        this.ball.ResetPosition(gameLevel-1);
 
     }
 
@@ -63,21 +83,56 @@ public class GameManager : MonoBehaviour
     public void PlayerTwoScore()
     {
         _playerTwoScore++;
-        if (_playerTwoScore % 3 == 0) {
+
+        if (gameLevel != maxGameLevel && _playerTwoScore % nextLevelPointRequirement == 0)
+            {
             _playerTwoScore = 0;
             gameLevel++;
+            playerTwoText.GetComponent<TextMeshProUGUI>().text = _playerTwoScore.ToString();
+            this.ball.ResetPosition(gameLevel - 1);
             gameLevelText.GetComponent<TextMeshProUGUI>().text = "Level: " + gameLevel.ToString();
-
-            if (_eventSender.isConnected)
-            {
-                _eventSender.Publish("game/level", ""+gameLevel);
-                Debug.Log("PUBLISHED LEVEL");
+            if (_eventSender.isConnected) 
+                {
+                _eventSender.Publish("game/level", "" + gameLevel);
+                // Debug.Log("PUBLISHED LEVEL");
             }
+        } else 
+        {
+            playerTwoText.GetComponent<TextMeshProUGUI>().text = _playerTwoScore.ToString();
+            this.ball.ResetPosition(gameLevel - 1);
         }
-        playerTwoText.GetComponent<TextMeshProUGUI>().text = _playerTwoScore.ToString();
 
-        this.ball.ResetPosition(gameLevel-1);
+        
+        
 
     }
-    
+
+    // This will reset the game if the player lost 3 points to the AI
+    public IEnumerator GameOverResetGame() 
+    {
+        gameOverUI.SetActive(true);
+        Time.timeScale = 0f;
+        Debug.Log("Game Manager WAITING");
+        //string currentSceneName = SceneManager.GetActiveScene().name;
+        //SceneManager.LoadScene(currentSceneName);
+        _playerOneScore = 0;
+        _playerTwoScore = 0;
+        gameLevel = 1;
+
+        gameLevelText.GetComponent<TextMeshProUGUI>().text = "Level: " + gameLevel.ToString();
+        playerOneText.GetComponent<TextMeshProUGUI>().text = _playerOneScore.ToString();
+        playerTwoText.GetComponent<TextMeshProUGUI>().text = _playerTwoScore.ToString();
+
+        if (_eventSender.isConnected) {
+            _eventSender.Publish("game/level", "" + gameLevel);
+        }
+
+        this.ball.ResetPosition(gameLevel - 1);
+        //Wait for 2 seconds
+        yield return new WaitForSecondsRealtime(2);
+        Debug.Log("Game Manager WAIT DONE");
+        gameOverUI.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
 }
