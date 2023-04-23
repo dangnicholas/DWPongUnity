@@ -101,7 +101,6 @@ public class MQTTReceiver : M2MqttUnityClient
     public void Publish(string topic, string msgToPublish)
     {
         client.Publish(topic, System.Text.Encoding.UTF8.GetBytes(msgToPublish), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, false);
-        Debug.Log("Test message published");
     }
 
     protected override void OnConnecting()

@@ -42,6 +42,8 @@ public class GameManager : MonoBehaviour
     private static int gameOverPointRequirement = 3;
 
 
+    [SerializeField] private AudioSource playerScoreSoundEffect;
+
 
     // Start is called before the first frame update
     void Start()
@@ -75,7 +77,7 @@ public class GameManager : MonoBehaviour
             this.ball.ResetPosition(gameLevel - 1);
         }
 
-        
+        playerScoreSoundEffect.Play();
 
     }
 
@@ -102,8 +104,8 @@ public class GameManager : MonoBehaviour
             this.ball.ResetPosition(gameLevel - 1);
         }
 
-        
-        
+
+        playerScoreSoundEffect.Play();
 
     }
 

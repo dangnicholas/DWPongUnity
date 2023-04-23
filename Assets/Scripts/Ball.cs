@@ -22,6 +22,8 @@ public class Ball : MonoBehaviour
 
     private Rigidbody rigidBody;
 
+    [SerializeField] private AudioSource ballBounceSoundEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +44,7 @@ public class Ball : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        ballBounceSoundEffect.Play();
         Debug.Log("Ball hit - increase speed");
         //Vector3 currentDirection = rigidBody.velocity
         rigidBody.velocity += rigidBody.velocity * speedMultiplier;
@@ -88,5 +91,10 @@ public class Ball : MonoBehaviour
     rigidBody.velocity += rigidBody.velocity * (level*speedMultiplier);
 
   
+    }
+
+    public void SetBallSpeedMultiplier(float ballSpeedMultiplier) {
+        speedMultiplier = ballSpeedMultiplier;
+        Debug.Log("SPEED SET TO " + speedMultiplier);
     }
 }

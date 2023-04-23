@@ -7,8 +7,8 @@ public class KeyboardInputHandler : MonoBehaviour
 
     public bool driveFromMQTT = true;
 
-    public float speed = 0.6f; // reflect value in original of 6px velocity per tick 
-    public float maxOffset = 8.1f; // (game width / 2 - paddle width / 2)
+    public float speed; // reflect value in original of 6px velocity per tick (0.6f)
+    public float maxOffset; // (game width / 2 - paddle width / 2)
 
     // abstracting buttons allows for 2 controllers on the same keyboard
     public KeyCode leftButton = KeyCode.LeftArrow;
@@ -20,6 +20,8 @@ public class KeyboardInputHandler : MonoBehaviour
     private bool newFrame;
 
     public MQTTReceiver _eventSender;
+
+    public int playerIdleTime;
 
     // Start is called before the first frame update
     void Start()
@@ -79,16 +81,16 @@ public class KeyboardInputHandler : MonoBehaviour
 
         var buttonDown = false;
         float newSpeed = 0.0f;
-        if (Input.GetKey(rightButton))
-        {
+        if (Input.GetKey(rightButton)) {
             newSpeed += speed;
             buttonDown = true;
-        }
-
-        if (Input.GetKey(leftButton))
-        {
+            playerIdleTime = 0;
+        } else if (Input.GetKey(leftButton)) {
             newSpeed += -speed;
             buttonDown = true;
+            playerIdleTime = 0;
+        } else {
+            playerIdleTime += 1;
         }
 
         if (buttonDown)

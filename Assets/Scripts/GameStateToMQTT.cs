@@ -16,6 +16,8 @@ public class GameStateToMQTT : MonoBehaviour  // : M2MqttUnityClient //
     int resWidth = 256;
     int resHeight = 256;
 
+    public int inferenceFrameInterval;
+
     public MQTTReceiver _eventSender;
 
     // Start is called before the first frame update
@@ -46,7 +48,7 @@ public class GameStateToMQTT : MonoBehaviour  // : M2MqttUnityClient //
     {
 
         // This sends the gamestate every 15 frames since our laptops can't inference fast, 5 is best that AI could do
-        if (Time.frameCount % 5 == 0)
+        if (Time.frameCount % inferenceFrameInterval == 0)
         {
             snapCam.Render();
             RenderTexture.active = snapCam.targetTexture;

@@ -10,19 +10,27 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject GameOverUI;
 
+    public GameObject bottomPlayer;
+
+    private int playerIdleTime;
+
     // Update is called once per frame
     void Update()
     {
-        if (!GameOverUI.activeSelf && Input.GetKeyDown(KeyCode.Escape)) 
-        {
-            if (GameIsPaused) 
-            {
+        playerIdleTime = bottomPlayer.GetComponent<KeyboardInputHandler>().playerIdleTime;
+        if (!GameOverUI.activeSelf && Input.GetKeyDown(KeyCode.Escape)) {
+            if (GameIsPaused) {
                 Resume();
-            } else 
-            {
+            } else {
                 Pause();
             }
-        } 
+        }
+
+        if (!GameOverUI.activeSelf && playerIdleTime > 500) {
+            Pause();
+        } else {
+            Resume();
+        }
     }
 
     void Resume() 
