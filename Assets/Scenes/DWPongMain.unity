@@ -3734,6 +3734,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1199447659465302479}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1614102558 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1199447659138182853, guid: 8bc3b5634c5c64aa495c7d47ba15f66f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1199447659465302479}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614102557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c4d9cbc0960459cb50469e1d80d02d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1639125806
 GameObject:
   m_ObjectHideFlags: 0
@@ -4302,12 +4314,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ab187d223c1142a78db0a958fb5d7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerUseDepthCamera: 0
   driveFromMQTT: 1
   speed: 0.2
   maxOffset: 6
   leftButton: 0
   rightButton: 0
-  _eventSender: {fileID: 1767635381}
+  _eventReceiver: {fileID: 0}
   playerIdleTime: 0
 --- !u!4 &1767635383
 Transform:
@@ -5167,8 +5180,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1199447659138182853, guid: 8bc3b5634c5c64aa495c7d47ba15f66f,
         type: 3}
+      propertyPath: topicPublish
+      value: motion/position
+      objectReference: {fileID: 0}
+    - target: {fileID: 1199447659138182853, guid: 8bc3b5634c5c64aa495c7d47ba15f66f,
+        type: 3}
       propertyPath: topicSubscribe
-      value: paddle2/position
+      value: motion/position
       objectReference: {fileID: 0}
     - target: {fileID: 1199447659138182854, guid: 8bc3b5634c5c64aa495c7d47ba15f66f,
         type: 3}
@@ -5235,6 +5253,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1199447659138182855, guid: 8bc3b5634c5c64aa495c7d47ba15f66f,
+        type: 3}
+      propertyPath: playerUseDepthCamera
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1199447659138182855, guid: 8bc3b5634c5c64aa495c7d47ba15f66f,
+        type: 3}
+      propertyPath: _depthCameraEventReceiver
+      value: 
+      objectReference: {fileID: 1614102558}
     - target: {fileID: 1199447659138182856, guid: 8bc3b5634c5c64aa495c7d47ba15f66f,
         type: 3}
       propertyPath: m_Name

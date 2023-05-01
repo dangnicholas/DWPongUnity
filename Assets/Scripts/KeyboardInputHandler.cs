@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class KeyboardInputHandler : MonoBehaviour
 {
-
+    public bool playerUseDepthCamera = false;
     public bool driveFromMQTT = true;
 
     public float speed; // reflect value in original of 6px velocity per tick (0.6f)
@@ -19,8 +19,7 @@ public class KeyboardInputHandler : MonoBehaviour
     private int frame;
     private bool newFrame;
 
-    public MQTTReceiver _eventSender;
-
+    public MQTTReceiver _eventReceiver;
     public int playerIdleTime;
 
     // Start is called before the first frame update
@@ -32,12 +31,12 @@ public class KeyboardInputHandler : MonoBehaviour
         Application.targetFrameRate = 60;
         myTransform = gameObject.transform;
 
-        if (_eventSender == null)
+        if (_eventReceiver == null)
         {
-            _eventSender = GetComponent<MQTTReceiver>();
+            _eventReceiver = GetComponent<MQTTReceiver>();
         }
-        _eventSender.OnConnectionSucceeded += OnConnectionSucceedHandler;
-        _eventSender.OnMessageArrived += OnMessageArrivedHandler;
+        _eventReceiver.OnConnectionSucceeded += OnConnectionSucceedHandler;
+        _eventReceiver.OnMessageArrived += OnMessageArrivedHandler;
     }
 
     private void OnConnectionSucceedHandler(bool success)
@@ -65,14 +64,12 @@ public class KeyboardInputHandler : MonoBehaviour
         // looking for specific keycodes is rudimentary and Unity's Input system is a better way to handle this
         // but all control will eventually be networked so this script is only for prototyping.
 
-        if (!driveFromMQTT)
-        {
-            //drive position from listening to key presses
-            HandleKeyInput();
-        }
-        else
-        {
+        if (driveFromMQTT) {
             HandleMQTTInput();
+        } else if (playerUseDepthCamera) {
+            HandleDepthCamera();
+        } else {
+            HandleKeyInput();
         }
     }
 
@@ -100,11 +97,6 @@ public class KeyboardInputHandler : MonoBehaviour
             newPosition.x = Mathf.Clamp(newPosition.x, -maxOffset, maxOffset);
             myTransform.position = newPosition;
 
-            // if (_eventSender.isConnected)
-            // {
-            //     Debug.Log("Sending paddle position");
-            //     _eventSender.Publish("paddle/position", myTransform.position.x.ToString()); // sending current position
-            // }
         }
     }
 
@@ -129,5 +121,19 @@ public class KeyboardInputHandler : MonoBehaviour
 
         myTransform.position = newPosition;
 
+    }
+
+    private void HandleDepthCamera() 
+    {
+        Vector3 newPosition = myTransform.position;
+        if (newPosition.x != MQTTInput) 
+        {
+            newPosition.x = MQTTInput;
+            newPosition.x = Mathf.Clamp(newPosition.x, -maxOffset, maxOffset);
+
+            myTransform.position = newPosition;
+        }
+
+       
     }
 }
