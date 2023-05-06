@@ -498,6 +498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f07c039a19715d24bb6816f73848dbb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameIsPaused: 0
   mainMenuUI: {fileID: 991078191}
   settingMenuUI: {fileID: 1338701242}
   GameOverUI: {fileID: 556579623}
@@ -2559,7 +2560,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1d61e2e08f12b3e438c470b2704e7653, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -4080,7 +4081,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2224256ea13dfe41ad41bb066d6beb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inferenceFrameInterval: 5
+  inferenceFrameInterval: 8
+  responsiveFrameInference: 0
+  publishPositions: 0
+  useCameraGamestate: 0
   _eventSender: {fileID: 1664407716}
 --- !u!114 &1664407716
 MonoBehaviour:
@@ -4299,8 +4303,8 @@ MonoBehaviour:
   autoConnect: 1
   mqttUserName: 
   mqttPassword: 
-  topicSubscribe: paddle1/action
-  topicPublish: paddle/position
+  topicSubscribe: paddle1/#
+  topicPublish: paddle1/frame_action
   autoTest: 0
 --- !u!114 &1767635382
 MonoBehaviour:
@@ -4316,12 +4320,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerUseDepthCamera: 0
   driveFromMQTT: 1
-  speed: 0.2
-  maxOffset: 6
+  responsiveFrameInference: 0
+  speed: 0.3
+  maxOffset: 8.1
   leftButton: 0
   rightButton: 0
-  _eventReceiver: {fileID: 0}
+  myTransform: {fileID: 0}
+  _eventReceiver: {fileID: 1767635381}
   playerIdleTime: 0
+  gameStateToMQTT: {fileID: 1664407715}
 --- !u!4 &1767635383
 Transform:
   m_ObjectHideFlags: 0
@@ -4331,7 +4338,7 @@ Transform:
   m_GameObject: {fileID: 1767635380}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 294926044}
@@ -4405,7 +4412,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d64f6b64b24d4e243aa39f1bc3e1781f, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.494
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -5195,6 +5202,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1199447659138182854, guid: 8bc3b5634c5c64aa495c7d47ba15f66f,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1199447659138182854, guid: 8bc3b5634c5c64aa495c7d47ba15f66f,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -5256,7 +5268,7 @@ PrefabInstance:
     - target: {fileID: 1199447659138182855, guid: 8bc3b5634c5c64aa495c7d47ba15f66f,
         type: 3}
       propertyPath: playerUseDepthCamera
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1199447659138182855, guid: 8bc3b5634c5c64aa495c7d47ba15f66f,
         type: 3}
@@ -5295,7 +5307,7 @@ PrefabInstance:
     - target: {fileID: 3913608590149615819, guid: 0d28b39472dc14df79383b78093c7450,
         type: 3}
       propertyPath: launchSpeed
-      value: 4
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3913608590149615819, guid: 0d28b39472dc14df79383b78093c7450,
         type: 3}

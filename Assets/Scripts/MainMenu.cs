@@ -7,7 +7,7 @@ using System;
 
 public class MainMenu : MonoBehaviour
 {
-    public static bool GameIsPaused = false;
+    public bool GameIsPaused = false;
 
     public GameObject mainMenuUI;
     public GameObject settingMenuUI;
@@ -23,6 +23,10 @@ public class MainMenu : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
+        if (GameIsPaused) {
+            Time.timeScale = 0f;
+        }
+
         if (!GameOverUI.activeSelf && !pauseMenuUI.activeSelf && Input.GetKeyDown(KeyCode.M)) {
             if (GameIsPaused) {
                 Resume();

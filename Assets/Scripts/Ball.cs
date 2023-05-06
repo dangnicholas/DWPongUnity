@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-
-    // need to:
-    // spawn
-    // increase speed on hit
-
     //public PhysicMaterial physicMaterial; // lets us alter properties at run time?
     [Tooltip("The speed at launch")]
     public float launchSpeed = 4.0f;
@@ -20,7 +15,7 @@ public class Ball : MonoBehaviour
     [Tooltip("The max angle (radians) the ball will launch from vertical axis")]
     public float launchAngleBounds = 30.0f;
 
-    private Rigidbody rigidBody;
+    public Rigidbody rigidBody;
 
     [SerializeField] private AudioSource ballBounceSoundEffect;
 
@@ -46,11 +41,10 @@ public class Ball : MonoBehaviour
     {
         ballBounceSoundEffect.Play();
         Debug.Log("Ball hit - increase speed");
-        //Vector3 currentDirection = rigidBody.velocity
+
         rigidBody.velocity += rigidBody.velocity * speedMultiplier;
         rigidBody.velocity = Vector3.ClampMagnitude(rigidBody.velocity, maxSpeed);
 
-        //newVelocity.x = Mathf.Clamp()
         
     }
 
@@ -65,25 +59,21 @@ public class Ball : MonoBehaviour
     public void ResetPosition(int level)
     {
         Debug.Log("Resetting Position of ball");
-        rigidBody.position = new Vector2(0.0f, 0.0f);
+        rigidBody.position = new Vector2(0.0f, -1.0f);
         var launchAngle = Random.Range(-launchAngleBounds, launchAngleBounds);
         var launchVector = Quaternion.AngleAxis(launchAngle, Vector3.up) * Vector3.forward;
         rigidBody.velocity = launchVector *  0.0f;
 
-        //Wait for 4 seconds
+        //Wait for n seconds before launching the ball
         StartCoroutine(waiter(level));
-
-          
-    
-
     }
 
     public IEnumerator waiter(int level)
     {   
 
 
-    //Wait for 4 seconds
-    yield return new WaitForSecondsRealtime(1);
+    //Wait for n seconds
+    yield return new WaitForSecondsRealtime(2);
 
     Launch();
 
@@ -95,6 +85,6 @@ public class Ball : MonoBehaviour
 
     public void SetBallSpeedMultiplier(float ballSpeedMultiplier) {
         speedMultiplier = ballSpeedMultiplier;
-        Debug.Log("SPEED SET TO " + speedMultiplier);
+        Debug.Log("Ball speed multiplier set to " + speedMultiplier);
     }
 }

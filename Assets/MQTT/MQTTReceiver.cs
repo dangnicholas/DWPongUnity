@@ -155,8 +155,8 @@ public class MQTTReceiver : M2MqttUnityClient
             //The message is decoded
             msg = System.Text.Encoding.UTF8.GetString(message);
 
-            Debug.Log("Received: " + msg);
-            Debug.Log("from topic: " + m_msg);
+            //Debug.Log("Received: " + msg);
+            //Debug.Log("from topic: " + m_msg);
 
             StoreMessage(msg);
             if (topic == topicSubscribe)

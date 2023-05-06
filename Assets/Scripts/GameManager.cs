@@ -8,7 +8,7 @@ using uPLibrary.Networking.M2Mqtt;
 using uPLibrary.Networking.M2Mqtt.Messages;
 
 using UnityEngine.SceneManagement;
-
+using Newtonsoft.Json;
 public class GameManager : MonoBehaviour
 {
 
@@ -95,7 +95,8 @@ public class GameManager : MonoBehaviour
             gameLevelText.GetComponent<TextMeshProUGUI>().text = "Level: " + gameLevel.ToString();
             if (_eventSender.isConnected) 
                 {
-                _eventSender.Publish("game/level", "" + gameLevel);
+
+                _eventSender.Publish("game/level", JsonConvert.SerializeObject(new { level = gameLevel })); //"" + gameLevel
                 // Debug.Log("PUBLISHED LEVEL");
             }
         } else 
