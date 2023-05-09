@@ -15,14 +15,20 @@ This contains the information sent and received from this Unity game repository:
   - **Received from MQTT**
      - paddle1/action
         1. Receives a number from 0-2 (left, right, do nothing) based on inference
+     - motion/position
+        1. Receives a position ranging from -1.15 to 0.15 representing the player position from the depth camera. Used to control bottom paddle 
 
 
 ## AI to MQTT
 This contains the information sent and received from this Unity game repository: [DWPong_AI](https://github.com/dangnicholas/DWPong_AI)
 
-  - **Publish from MQTT**
+  - **Publish to MQTT**
      - paddle1/action
         1. Publishes a number from 0-2 (left, right, do nothing) based on inference
+     - paddle1/frame
+        1. Publishes the frame the AI did inference on.
+     - motion/position
+        1. Publishes a position ranging from -1.15 to 0.15 representing the player position from the depth camera. Used to control bottom paddle 
   - **Received from MQTT**
      - camera/gamestate: 
         1. Receives a single string of 0s (paddles and ball) and 1s (empty space) with 92160 digits (e.g. "0000011100...")
