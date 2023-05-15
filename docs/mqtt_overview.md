@@ -1,6 +1,13 @@
 # MQTT Overview
 
  MQTT and mosquitto will be used for inter-communication within the game. The installation could be found here: [MQTT download](https://mosquitto.org/download/)
+ 
+## MQTT Explorer
+MQTT Explorer can be used to view the messages sent through MQTT as the game is running. The application can be downloaded here: [MQTT Explorer](http://mqtt-explorer.com/).
+
+Below contains a snippet of all the messages sent to MQTT for this project.
+
+![img](mqtt_explorer.PNG)
 
 ## Unity to MQTT
 This contains the information sent and received from this Unity game repository: [DWPongUnity](https://github.com/dangnicholas/DWPongUnity)
