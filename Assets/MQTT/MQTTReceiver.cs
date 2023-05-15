@@ -101,7 +101,6 @@ public class MQTTReceiver : M2MqttUnityClient
     public void Publish(string topic, string msgToPublish)
     {
         client.Publish(topic, System.Text.Encoding.UTF8.GetBytes(msgToPublish), MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE, false);
-        Debug.Log("Test message published");
     }
 
     protected override void OnConnecting()
@@ -156,8 +155,8 @@ public class MQTTReceiver : M2MqttUnityClient
             //The message is decoded
             msg = System.Text.Encoding.UTF8.GetString(message);
 
-            Debug.Log("Received: " + msg);
-            Debug.Log("from topic: " + m_msg);
+            //Debug.Log("Received: " + msg);
+            //Debug.Log("from topic: " + m_msg);
 
             StoreMessage(msg);
             if (topic == topicSubscribe)

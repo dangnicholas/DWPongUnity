@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:VisualElement style="height: 100%; width: 20%;">
+        <ui:VisualElement name="container" style="height: auto; width: auto; left: auto; align-items: stretch; translate: 0 0; background-color: rgb(130, 130, 130); scale: 1 1; flex-wrap: nowrap; flex-shrink: 1;">
+            <ui:RadioButtonGroup label="Difficulty Options" value="1" name="DifficultyButtons" style="align-items: stretch; flex-direction: column; height: auto; width: auto; flex-basis: auto;">
+                <ui:Button text="Easy" display-tooltip-when-elided="true" name="EasyButton" />
+                <ui:Button text="Medium" display-tooltip-when-elided="true" name="MediumButton" />
+                <ui:Button text="Hard" display-tooltip-when-elided="true" name="HardButton" />
+            </ui:RadioButtonGroup>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
