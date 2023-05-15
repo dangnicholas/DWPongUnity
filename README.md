@@ -13,6 +13,9 @@ $ pip install -r requirements.txt
 ### Install Depth Camera
 - [Intel Realsense D435 depth camera](https://www.intelrealsense.com/get-started-depth-camera/)
 
+### Install Mosquitto
+- [Mosquitto](https://mosquitto.org/download/)
+
 ### Start AI
 ```bash
 $ cd DWPongUnity\StandaloneAI\exhibit
