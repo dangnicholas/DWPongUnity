@@ -5268,7 +5268,7 @@ PrefabInstance:
     - target: {fileID: 1199447659138182855, guid: 8bc3b5634c5c64aa495c7d47ba15f66f,
         type: 3}
       propertyPath: playerUseDepthCamera
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1199447659138182855, guid: 8bc3b5634c5c64aa495c7d47ba15f66f,
         type: 3}

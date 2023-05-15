@@ -3,18 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using Newtonsoft.Json;
 
-public class KeyboardInputHandler : MonoBehaviour
-{
+public class KeyboardInputHandler : MonoBehaviour {
     [Tooltip("Option to use depth camera as player input. Will use keyboard if false.")]
     public bool playerUseDepthCamera = false;
 
     [Tooltip("Option to use AI's input to move the paddle. False will use keyboard")]
-    public bool driveFromMQTT = true;
-    [Tooltip("Option to send game state responsively. False will send every n frames. Must check same value in AI Camera's GameStateToMQTT scritp as well")]
+    public bool driveFromMQTT = false;
+    [Tooltip("Option to send game state responsively. False will send every n frames. Must check same value in AI Camera's GameStateToMQTT script as well")]
     public bool responsiveFrameInference;
 
     public float speed; // reflect value in original of 6px velocity per tick (0.6f)
     public float maxOffset; // (game width / 2 - paddle width / 2) which is 8.1f
+
+    [Tooltip("The minimum value (left side) of the depth camera position value")]
+    public float depthMinPosition = 1.15f;
+    [Tooltip("The maximum value (right side) of the depth camera position value")]
+    public float depthMaxPosition = -0.15f;
+
+    [Tooltip("The minimum value (left side) of the Unity game position for paddle")]
+    public float unityMinPosition = -8.1f;
+    [Tooltip("The maximum value (right side) of the Unity game position for paddle")]
+    public float unityMaxPosition = 8.1f;
 
     // abstracting buttons allows for 2 controllers on the same keyboard
     public KeyCode leftButton = KeyCode.LeftArrow;
@@ -28,6 +37,9 @@ public class KeyboardInputHandler : MonoBehaviour
 
     // The Unity game frame that the AI read in and performed the inference on.
     float aiFrame;
+
+    // The position from depth camera
+    float playerPosition;
 
     // Will update the paddle action if new AI action
     private bool newMQTTInput;
@@ -45,17 +57,18 @@ public class KeyboardInputHandler : MonoBehaviour
     public class AIObject {
         public string action { get; set; }
         public string frame { get; set; }
+        public string position { get; set; }
     }
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
+        Debug.Log("PLAYER USE DEPTH " + playerUseDepthCamera);
+        Debug.Log("DRIVE MQTT " + driveFromMQTT);
         newMQTTInput = false;
         Application.targetFrameRate = 60;
         myTransform = gameObject.transform;
 
-        if (_eventReceiver == null)
-        {
+        if (_eventReceiver == null) {
             _eventReceiver = GetComponent<MQTTReceiver>();
 
         }
@@ -64,15 +77,13 @@ public class KeyboardInputHandler : MonoBehaviour
         _eventReceiver.OnMessageArrived += OnMessageArrivedHandler;
     }
 
-    private void OnConnectionSucceedHandler(bool success)
-    {
+    private void OnConnectionSucceedHandler(bool success) {
     }
 
-    private void OnMessageArrivedHandler(string newMsg)
-    {
-        try 
-        {
+    private void OnMessageArrivedHandler(string newMsg) {
+        try {
             var newMsgJson = JsonConvert.DeserializeObject<AIObject>(newMsg);
+            //Debug.Log("newMsgJson " + newMsgJson.position);
             if (newMsgJson.action != null) {
                 aiInference = float.Parse(newMsgJson.action);
 
@@ -84,24 +95,26 @@ public class KeyboardInputHandler : MonoBehaviour
 
             } else if (newMsgJson.frame != null) {
                 aiFrame = float.Parse(newMsgJson.frame);
+            } else if (newMsgJson.position != null) {
+                float slope = 1.0f * (unityMaxPosition - unityMinPosition) / (depthMaxPosition - depthMinPosition);
+                playerPosition = unityMinPosition + slope * (float.Parse(newMsgJson.position) - depthMinPosition);
+                //Debug.Log("MQTT position " + newMsgJson.position + " | playerPosition " + playerPosition);
+                //playerPosition = ((float.Parse(newMsgJson.position) + 0.675f) * 9.8181818f);
+
+                newMQTTInput = true;
             }
 
-            //string[] frameAction = newMsg.Replace("\"", "").Split('_');
-            //frame = float.Parse(frameAction[0]);
-            //action = float.Parse(frameAction[1]);
 
-        } catch (System.FormatException e) 
-        {
+        } catch (System.FormatException e) {
             Debug.Log("Invalid input received from standalone AI");
         }
 
-        
+
 
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         // looking for specific keycodes is rudimentary and Unity's Input system is a better way to handle this
         // but all control will eventually be networked so this script is only for prototyping.
 
@@ -110,12 +123,12 @@ public class KeyboardInputHandler : MonoBehaviour
         } else if (playerUseDepthCamera) {
             HandleDepthCamera();
         } else {
+            
             HandleKeyInput();
         }
     }
 
-    private void HandleKeyInput()
-    {
+    private void HandleKeyInput() {
 
         var buttonDown = false;
         float newSpeed = 0.0f;
@@ -131,8 +144,7 @@ public class KeyboardInputHandler : MonoBehaviour
             playerIdleTime += 1;
         }
 
-        if (buttonDown)
-        {
+        if (buttonDown) {
             Vector3 newPosition = myTransform.position;
             newPosition.x += newSpeed;
             newPosition.x = Mathf.Clamp(newPosition.x, -maxOffset, maxOffset);
@@ -141,19 +153,18 @@ public class KeyboardInputHandler : MonoBehaviour
         }
     }
 
-    private void HandleMQTTInput()
-    {   
-        
+    private void HandleMQTTInput() {
+
         float newSpeed = 0.0f;
 
-        if (newMQTTInput) {
+        if (newMQTTInput && aiInference != -1) {
             Dictionary<float, float> action = new Dictionary<float, float>() { { 0f, -1f }, { 1f, 1f }, { 2f, 0f } };
             aiInference = action[aiInference];
 
             newMQTTInput = false;
-        } 
+        }
 
-        newSpeed +=  aiInference*speed;
+        newSpeed += aiInference * speed;
 
         Vector3 newPosition = myTransform.position;
         newPosition.x += newSpeed;
@@ -163,17 +174,32 @@ public class KeyboardInputHandler : MonoBehaviour
 
     }
 
-    private void HandleDepthCamera() 
-    {
-        Vector3 newPosition = myTransform.position;
-        if (newPosition.x != aiInference) 
-        {
-            newPosition.x = aiInference;
-            newPosition.x = Mathf.Clamp(newPosition.x, -maxOffset, maxOffset);
+    private void HandleDepthCamera() {
+        /**
+        if (newMQTTInput) {
+            Debug.Log("Depth camera position " + playerPosition);
+            
+            if (newPosition.x != playerPosition) {
+                newPosition.x = playerPosition;
+                newPosition.x = Mathf.Clamp(newPosition.x, -maxOffset, maxOffset);
 
-            myTransform.position = newPosition;
+                myTransform.position = newPosition;
+
+                newMQTTInput = false;
+            }
         }
+        **/
+        Vector3 newPosition = myTransform.position;
+        Debug.Log("Depth camera position " + playerPosition + " | " + (Mathf.Clamp(playerPosition - newPosition.x, -1, 1)));
 
-       
+        float newSpeed = 0.0f;
+        newSpeed += (Mathf.Clamp(playerPosition - newPosition.x, -1, 1)) * speed;
+
+        newPosition.x += newSpeed;
+        newPosition.x = Mathf.Clamp(newPosition.x, -maxOffset, maxOffset);
+
+        myTransform.position = newPosition;
+
+
     }
 }
