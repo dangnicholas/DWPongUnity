@@ -120,11 +120,10 @@ public class KeyboardInputHandler : MonoBehaviour {
 
         if (driveFromMQTT) {
             HandleMQTTInput();
+        } else if (Input.GetKey(leftButton) || Input.GetKey(rightButton)) {
+            HandleKeyInput();
         } else if (playerUseDepthCamera) {
             HandleDepthCamera();
-        } else {
-            
-            HandleKeyInput();
         }
     }
 

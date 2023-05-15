@@ -127,7 +127,7 @@ public class GameManager : MonoBehaviour
         playerTwoText.GetComponent<TextMeshProUGUI>().text = _playerTwoScore.ToString();
 
         if (_eventSender.isConnected) {
-            _eventSender.Publish("game/level", "" + gameLevel);
+            _eventSender.Publish("game/level", JsonConvert.SerializeObject(new { level = gameLevel }));
         }
 
         this.ball.ResetPosition(gameLevel - 1);

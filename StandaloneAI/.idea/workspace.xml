@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a4e2a042-ca54-47d4-8777-6a4b7e85ff80" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/exhibit/motion/motion_driver.py" beforeDir="false" afterPath="$PROJECT_DIR$/exhibit/motion/motion_driver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_driver.log" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_driver.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_driver.log.1" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_driver.log.1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_driver.log.10" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_driver.log.10" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_driver.log.2" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_driver.log.2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_driver.log.3" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_driver.log.3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_driver.log.4" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_driver.log.4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_driver.log.5" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_driver.log.5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_driver.log.6" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_driver.log.6" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_driver.log.7" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_driver.log.7" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_driver.log.8" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_driver.log.8" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_driver.log.9" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_driver.log.9" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_0_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_104_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_104_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_112_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_120_0.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_120_0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_128_0.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_128_0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_136_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_136_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_144_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_144_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_152_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_160_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_160_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_168_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_16_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_16_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_176_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_176_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_184_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_184_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_192_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_200_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_208_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_216_0.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_216_0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_224_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_232_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_232_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_240_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_248_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_248_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_24_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_24_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_256_0.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_256_0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_264_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_264_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_272_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_280_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_280_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_288_0.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_288_0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_296_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_296_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_304_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_304_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_312_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_312_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_320_0.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_320_0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_328_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_328_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_336_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_336_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_352_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_360_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_360_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_368_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_376_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_384_0.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_384_0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_392_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_392_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_400_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_400_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_40_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_40_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_416_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_416_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_424_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_424_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_432_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_432_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_440_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_440_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_448_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_448_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_464_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_464_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_472_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_472_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_48_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_48_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_56_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_64_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_64_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_72_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_72_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_80_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_80_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_88_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_88_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_8_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_8_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/ai_input_images/diff_96_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/logs/ai_input_images/diff_96_2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/../UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2Pqc7O3DY5sywcxVHL7i6kA24iW" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/exhibit/motion/motion_driver.py" />
+  </component>
+  <component name="RunManager">
+    <configuration name="motion_driver" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="StandaloneAI" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\dangn\Documents\SeniorVenv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/exhibit/motion" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/exhibit/motion/motion_driver.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a4e2a042-ca54-47d4-8777-6a4b7e85ff80" name="Default Changelist" comment="" />
+      <created>1684187883774</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1684187883774</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-1506" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1684188456403">
+      <screen x="-1920" y="3" width="1920" height="1040" />
+    </state>
+    <state x="-1506" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.3.1920.1040/-820.1083.1920.1040/0.0.1920.1040@-1920.3.1920.1040" timestamp="1684188456403" />
+    <state x="-1180" y="278" key="FileChooserDialogImpl" timestamp="1684188455054">
+      <screen x="-1920" y="3" width="1920" height="1040" />
+    </state>
+    <state x="-1180" y="278" key="FileChooserDialogImpl/-1920.3.1920.1040/-820.1083.1920.1040/0.0.1920.1040@-1920.3.1920.1040" timestamp="1684188455054" />
+    <state width="1882" height="279" key="GridCell.Tab.0.bottom" timestamp="1684193013260">
+      <screen x="-1920" y="3" width="1920" height="1040" />
+    </state>
+    <state width="1882" height="279" key="GridCell.Tab.0.bottom/-1920.3.1920.1040/-820.1083.1920.1040/0.0.1920.1040@-1920.3.1920.1040" timestamp="1684193013260" />
+    <state width="1882" height="279" key="GridCell.Tab.0.center" timestamp="1684193013260">
+      <screen x="-1920" y="3" width="1920" height="1040" />
+    </state>
+    <state width="1882" height="279" key="GridCell.Tab.0.center/-1920.3.1920.1040/-820.1083.1920.1040/0.0.1920.1040@-1920.3.1920.1040" timestamp="1684193013260" />
+    <state width="1882" height="279" key="GridCell.Tab.0.left" timestamp="1684193013260">
+      <screen x="-1920" y="3" width="1920" height="1040" />
+    </state>
+    <state width="1882" height="279" key="GridCell.Tab.0.left/-1920.3.1920.1040/-820.1083.1920.1040/0.0.1920.1040@-1920.3.1920.1040" timestamp="1684193013260" />
+    <state width="1882" height="279" key="GridCell.Tab.0.right" timestamp="1684193013260">
+      <screen x="-1920" y="3" width="1920" height="1040" />
+    </state>
+    <state width="1882" height="279" key="GridCell.Tab.0.right/-1920.3.1920.1040/-820.1083.1920.1040/0.0.1920.1040@-1920.3.1920.1040" timestamp="1684193013260" />
+  </component>
+</project>
