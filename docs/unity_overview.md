@@ -31,9 +31,11 @@ Some settings can be adjusted in the Unity editor
 
 **1. Send game state to AI using paddle and ball positions**
 - AICamera > Game State To MQTT (Script) > Use Camera Gamestate (unchecked)
+- Set self.UNITY_RECV_POSITIONS = True from [configs.py](https://github.com/dangnicholas/DWPongUnity/blob/main/StandaloneAI/exhibit/shared/config.py)
 
 **2. Send game state to AI using snapshot of game and sending 2d array of 1s and 0s**
 - AICamera > Game State To MQTT (Script) > Use Camera Gamestate (checked)
+- Set self.UNITY_RECV_POSITIONS = False from [configs.py](https://github.com/dangnicholas/DWPongUnity/blob/main/StandaloneAI/exhibit/shared/config.py)
 
 ### Two options of AI frame inference intervals
 
