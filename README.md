@@ -10,6 +10,8 @@ Python 3.8.10 was used to run the AI and depth camera modules
 $ cd DWPongUnity\StandaloneAI
 $ pip install -r requirements.txt
 ```
+### Install Depth Camera
+- [Intel Realsense D435 depth camera](https://www.intelrealsense.com/get-started-depth-camera/)
 
 ### Start AI
 ```bash
