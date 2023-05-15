@@ -3,9 +3,33 @@ The goal of this project is to reimplementate the game engine component of DWPon
 
 ## Exhibit Setup
 
+Python 3.8.10 was used to run the AI and depth camera modules
 
+### Install python libraries
+```bash
+$ cd DWPongUnity\StandaloneAI
+$ pip install -r requirements.txt
+```
+
+### Start AI
+```bash
+$ cd DWPongUnity\StandaloneAI\exhibit
+$ python ai\ai_driver.py
+```
+
+### Start Depth Camera
+```bash
+$ cd DWPongUnity\StandaloneAI\exhibit
+$ python motion\motion_driver.py
+```
+
+### Start Unity Game
+```bash
+$ cd DWPongUnity\Builds
+$ DWPong.exe
+```
 
 ## Documentation
 * [MQTT Overview](docs/mqtt_overview.md)
 * [Unity Overview](docs/unity_overview.md)
-* [AI Overview](docs/ai_overview.md)
+* [AI & Depth Camera Overview](docs/ai_overview.md)
