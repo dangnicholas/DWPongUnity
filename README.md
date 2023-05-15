@@ -1,30 +1,11 @@
 # DWPongUnity
-A reimplementation of DWPongDiscoveryWorld inside the Unity game engine
+The goal of this project is to reimplementate the game engine component of DWPongDiscoveryWorld inside the Unity game engine instead. This will allow for better maintainability as well as more scalability to add additional features to the game as Unity is a much more popular engine for game development.
 
-## Unity to MQTT
+## Exhibit Setup
 
-- **Publish to MQTT**
-   - camera/gamestate: 
-      1. Publishes a single string of 0s (paddles and ball) and 1s (empty space) with 92160 digits (e.g. "0000011100...")
-   - game/frame:
-      1. Publishes a frame count as a string which is grabbed from Unity's Time.frameCount
-   - game/level:
-      1. Publishes a game level as string
-- **Received from MQTT**
-   - paddle1/action
-      1. Receives a number from 0-2 (left, right, do nothing) based on inference
-      
-      
- ## AI to MQTT
- 
-- **Publish from MQTT**
-   - paddle1/action
-      1. Publishes a number from 0-2 (left, right, do nothing) based on inference
-- **Received from MQTT**
-   - camera/gamestate: 
-      1. Receives a single string of 0s (paddles and ball) and 1s (empty space) with 92160 digits (e.g. "0000011100...")
-      2. String is converted into a 160x192x3 np array for model input
-   - game/frame:
-      1. Receives a frame count as a string which is grabbed from Unity's Time.frameCount
-   - game/level:
-      1. Receives a game level as string
+
+
+## Documentation
+* [MQTT Overview](docs/mqtt_overview.md)
+* [Unity Overview](docs/unity_overview.md)
+* [AI Overview](docs/ai_overview.md)
