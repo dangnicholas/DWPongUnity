@@ -16,13 +16,13 @@ This page contains an overview of the Unity pong game implementation found here:
 ## UI Overview
 
 - Pressing 'M' will open the main menu of the game.
-![img](main_menu.png)
+![img](main_menu.PNG)
 
 - An idle player will result in the pause menu popping up and pausing the game until the player moves
-![img](pause_menu.png)
+![img](pause_menu.PNG)
 
 - A Game Over menu will pop up when the player loses 3 points to the AI
-![img](game_over_menu.png)
+![img](game_over_menu.PNG)
 
 ## Adjustable Settings
 Some settings can be adjusted in the Unity editor
