@@ -4323,6 +4323,10 @@ MonoBehaviour:
   responsiveFrameInference: 0
   speed: 0.3
   maxOffset: 8.1
+  depthMinPosition: 1.15
+  depthMaxPosition: -0.15
+  unityMinPosition: -8.1
+  unityMaxPosition: 8.1
   leftButton: 0
   rightButton: 0
   myTransform: {fileID: 0}
@@ -5267,8 +5271,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1199447659138182855, guid: 8bc3b5634c5c64aa495c7d47ba15f66f,
         type: 3}
+      propertyPath: driveFromMQTT
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1199447659138182855, guid: 8bc3b5634c5c64aa495c7d47ba15f66f,
+        type: 3}
+      propertyPath: _eventReceiver
+      value: 
+      objectReference: {fileID: 1614102558}
+    - target: {fileID: 1199447659138182855, guid: 8bc3b5634c5c64aa495c7d47ba15f66f,
+        type: 3}
       propertyPath: playerUseDepthCamera
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1199447659138182855, guid: 8bc3b5634c5c64aa495c7d47ba15f66f,
+        type: 3}
+      propertyPath: responsiveFrameInference
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1199447659138182855, guid: 8bc3b5634c5c64aa495c7d47ba15f66f,
         type: 3}
