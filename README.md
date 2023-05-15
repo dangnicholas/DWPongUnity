@@ -29,6 +29,8 @@ $ cd DWPongUnity\Builds
 $ DWPong.exe
 ```
 
+![exhibit demo](docs/exhibit_demo.gif)
+
 ## Documentation
 * [MQTT Overview](docs/mqtt_overview.md)
 * [Unity Overview](docs/unity_overview.md)
