@@ -1,6 +1,7 @@
 # Unity Overview
 
-This page contains an overview of the Unity pong game implementation found here: [DWPongUnity](https://github.com/dangnicholas/DWPongUnity)
+- This page contains an overview of the Unity pong game implementation found here: [DWPongUnity](https://github.com/dangnicholas/DWPongUnity)
+- More detailed documentation on each game object is found here: [Unity Details](unity_details.md)
 
 ## Game Objects Overview
 - **Main Camera**: The camera that the player sees
@@ -14,6 +15,11 @@ This page contains an overview of the Unity pong game implementation found here:
 - **Canvas**: The canvas used for all the UI implementations
 
 ## UI Overview
+
+The state transition diagram for the UI components currently.
+
+![img](PongUIStateTransition.PNG)
+
 
 - Pressing 'M' will open the main menu of the game.
 ![img](main_menu.PNG)
