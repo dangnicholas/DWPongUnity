@@ -3,6 +3,8 @@
 - This page contains an overview of the Unity pong game implementation found here: [DWPongUnity](https://github.com/dangnicholas/DWPongUnity)
 - More detailed documentation on each game object is found here: [Unity Details](unity_details.md)
 
+![img](UnitySequenceDiagram.PNG)
+
 ## Game Objects Overview
 - **Main Camera**: The camera that the player sees
 - **AI Camera**: The camera that is filtered to only see the top paddle and ball
