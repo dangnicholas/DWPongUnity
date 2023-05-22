@@ -159,3 +159,75 @@
     - BallSpeedSlider: A slider with text that display the ball speed multiplier that can change when this slider is used.
     - BackButton: Goes back to Main menu screen
     - Shows a slider and text to allow user to change the ball speed multiplier as the ball bounces each time. Can remove this settings menu so visitors can't change things easily.
+
+
+## Scripts
+
+All C# scripts used in Unity are found in Assets > Scripts Folder.
+
+### Ball.cs
+- Usage: Ball (Game Object)
+
+### GameManager.cs
+- Usage: GameManager (Game Object)
+
+### GameStateToMQTT.cs
+- Usage: AICamera (Game Object)
+
+### Goal.cs
+- Usage: Bounds > TopBarrier, BottomBarrier
+
+### KeyboardInputHandler.cs
+- Usage: BottomPlayer, TopPlayer
+
+### MainMenu.cs
+- Usage: Canvas (Game Object)
+
+### PauseMenu.cs
+- Usage: Canvas (Game Object)
+
+### MQTTReceiver.cs
+- Assets > MQTT folder added by Riley.
+- Found in Assets > MQTT > MQTTReceiver.cs
+- Usage: BottomPlayer, TopPlayer, AICamera
+
+## Materials
+
+Materials found in Assets > Materials
+
+### Paddle
+- Usage: Ball > Cube, BottomPlayer > Cube , TopPlayer > Cube
+
+### GameBoard
+- Usage: Quad (Game Object)
+
+## Models
+
+- Models found in Assets > Models
+- Folder added by Riley.
+
+## Ball
+
+- Models found in Assets > Ball
+- Folder added by Riley.
+
+## Player
+
+- Contains prefab for a paddle
+
+## Sounds
+
+Contains sounds used in game.
+
+### bounce.ogg
+- Usage: Ball (Game Object)
+
+### return.ogg
+- Usage: Not currently used
+
+### score.ogg
+- Usage: GameManager (Game Object)
+
+### credits.txt
+- To credit the sounds used.
+
